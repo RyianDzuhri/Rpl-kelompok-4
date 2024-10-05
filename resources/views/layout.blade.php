@@ -25,11 +25,14 @@
         th {
             background-color: #f2f2f2;
         }
-        /* body {
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        } */
+            background-image: url('{{ asset('images/bgkat.jpg') }}'); /* Ganti dengan path ke gambar background */
+            background-size: cover; /* Menutupi seluruh halaman */
+            background-position: center; /* Memposisikan gambar di tengah */
+        }
         /* Style sidebar */
         .sidebar {
             height: 100%;

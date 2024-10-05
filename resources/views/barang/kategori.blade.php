@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Table with Thick Border</title>
+    <title>Kategori</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             display: flex;
             height: 100vh; /* Memastikan body memiliki tinggi penuh */
             margin: 0; /* Menghapus margin default */
+            background-image: url('{{ asset('images/bgkat.jpg') }}'); /* Ganti dengan path ke gambar background */
+            background-size: cover; /* Menutupi seluruh halaman */
+            background-position: center; /* Memposisikan gambar di tengah */
         }
 
         /* Style sidebar */
@@ -58,6 +61,7 @@
             justify-content: center; /* Memusatkan secara horizontal */
             align-items: center; /* Memusatkan secara vertikal */
             padding: 20px;
+
         }
 
         .table-container {
