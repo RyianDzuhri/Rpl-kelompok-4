@@ -29,7 +29,7 @@
 </head>
 <body>
     <div class="table-container">
-        <h4 style="text-align: center;">TABEL ID KATEGORI</h4>
+        <h4 style="text-align: center;">DAFTAR ID KATEGORI</h4>
         <a class="btn btn-success" href="{{ route('barang.tampil') }}">Halaman Utama</a>
         <table class="table table-bordered mt-3">
             <thead>
