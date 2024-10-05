@@ -36,11 +36,11 @@
                 <td>{{ $data->kategori_id }}</td>
                 <td>
                     <a href="{{ route('barang.edit', $data->id_barang) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <form action="{{ route('barang.delete', $data->id_barang) }}" method="post" style="display:inline;">
+                    <form action="{{ route('barang.delete', $data->id_barang) }}" method="POST" style="display:inline;">
                         @csrf
-                        @method('DELETE')
+                        @method('DELETE') <!-- Menyatakan bahwa ini adalah metode DELETE -->
                         <button class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?')">Hapus</button>
-                    </form>
+                    </form>                    
                 </td>
             </tr>        
         @endforeach

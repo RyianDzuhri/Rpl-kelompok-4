@@ -25,11 +25,11 @@
         th {
             background-color: #f2f2f2;
         }
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
+        } */
         /* Style sidebar */
         .sidebar {
             height: 100%;
