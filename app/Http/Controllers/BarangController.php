@@ -2,64 +2,68 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang;
-use App\Models\Kategori;
 use Illuminate\Http\Request;
+use App\Models\Barang;
 
 class BarangController extends Controller
 {
-    function tampil(){
-        $barang = Barang::get();
-        return view ('barang.tampil', compact('barang'));
+    // Menampilkan halaman dengan daftar barang
+    function manajamen(){
+        $barang = Barang::all(); // Mengambil semua data barang
+        return view('barang.tampil', compact('barang')); // Menampilkan view dengan data barang
     }
-    function tambah(){
-        return view ('barang.tambah');
-    }
-    function submit (Request $request){
-        $barang = new Barang();
-        $barang->nama_barang = $request->nama_barang;
-        $barang->harga = $request->harga;
-        $barang->stok = $request->stok;
-        $barang->kategori_id = $request->kategori_id;
-        $barang ->save();
 
-        return redirect()->route('barang.tampil');
-    }
-    function edit ($id_barang){
-        $barang = Barang::find($id_barang);
-        return view('barang.edit', compact('barang'));
-    }
-    function update (Request $request, $id_barang){
-        $barang = Barang::find($id_barang);
-        $barang->nama_barang = $request->nama_barang;
-        $barang->harga = $request->harga;
-        $barang->stok = $request->stok;
-        $barang->kategori_id = $request->kategori_id;
-        $barang ->update();
+    // Menyimpan barang baru
+    public function store(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga' => 'required|numeric',
+            'stok' => 'required|integer',
+            'kategori_id' => 'required|integer',
+        ]);
 
-        return redirect()->route('barang.tampil');
+        // Menyimpan data ke database
+        Barang::create([
+            'nama_barang' => $request->nama_barang,
+            'harga' => $request->harga,
+            'stok' => $request->stok,
+            'kategori_id' => $request->kategori_id,
+        ]);
+
+        return redirect()->route('barang.tampil')->with('success', 'Barang berhasil ditambahkan!');
     }
-    function delete ($id_barang){
-        $barang = Barang::find($id_barang);
+
+    // Mengedit barang
+    public function update(Request $request, $id_barang)
+    {
+        // Validasi input
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga' => 'required|numeric',
+            'stok' => 'required|integer',
+            'kategori_id' => 'required|integer',
+        ]);
+
+        // Mengupdate data di database
+        $barang = Barang::findOrFail($id_barang);
+        $barang->update([
+            'nama_barang' => $request->nama_barang,
+            'harga' => $request->harga,
+            'stok' => $request->stok,
+            'kategori_id' => $request->kategori_id,
+        ]);
+
+        return redirect()->route('barang.tampil')->with('success', 'Barang berhasil diperbarui!');
+    }
+
+    // Menghapus barang
+    public function destroy($id_barang)
+    {
+        $barang = Barang::findOrFail($id_barang);
         $barang->delete();
-        return redirect()->route('barang.tampil');
+
+        return redirect()->route('barang.tampil')->with('success', 'Barang berhasil dihapus!');
     }
-    function daftarKategori(){
-        $kategori = Kategori::all();
-        return view ('barang.kategori', compact('kategori'));
-    }
-    public function cari(Request $request) {
-        $keyword = $request->input('cari');
-         
-        // Jika tidak ada keyword, kembalikan tampilan tanpa barang
-        if (empty($keyword)) {
-            $barang = collect(); // Mengembalikan koleksi kosong
-        } else {
-            // Jika ada keyword, cari barang berdasarkan kategori_id
-            $barang = Barang::where('kategori_id', 'like', "%" . $keyword . "%")->paginate(2);
-        }
-    
-        return view('barang.tampil', compact('barang'));
-    }
-    
 }

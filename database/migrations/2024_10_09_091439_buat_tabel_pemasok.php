@@ -1,10 +1,10 @@
-<?php
+<?php 
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class BuatTabelPemasok extends Migration
 {
     /**
      * Jalankan migrasi.
@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('alamat')->nullable(); // Alamat pemasok
             $table->string('telepon')->nullable(); // Nomor telepon pemasok
             $table->string('email')->unique()->nullable(); // Email pemasok (unik)
-            $table->timestamps(); // Tanggal dibuat dan diubah (otomatis)
+            $table->timestamps(); // Tanggal dibuat dan diubah
         });
     }
 
     /**
-     * Batalkan migrasi.
+     * Kembalikan migrasi.
      *
      * @return void
      */
@@ -32,4 +32,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('pemasok');
     }
-};
+}

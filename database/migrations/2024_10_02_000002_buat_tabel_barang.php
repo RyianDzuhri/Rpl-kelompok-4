@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_barang'); // Kolom id_barang sebagai primary key
             $table->string('nama_barang'); // Kolom untuk nama barang
             $table->decimal('harga', 10, 2); // Kolom untuk harga barang dengan 2 digit desimal
-            $table->integer('stok'); // Kolom untuk stok barang
+            $table->unsignedInteger('stok')->default(0); // Kuantitas stok
             // Menambahkan kolom kategori_id untuk foreign key dari tabel kategori
             $table->unsignedBigInteger('kategori_id'); 
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade'); // Menambahkan foreign key

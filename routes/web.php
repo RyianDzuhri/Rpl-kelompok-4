@@ -1,19 +1,31 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PemasokController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/barang', [BarangController::class, 'tampil'])->name('barang.tampil');
-Route::get('/barang/tampil', [BarangController::class, 'tampil'])->name('barang.tampil');
-Route::get('/barang/tambah', [BarangController::class, 'tambah'])->name('barang.tambah');
-Route::post('/barang/submit', [BarangController::class, 'submit'])->name('barang.submit');
-Route::get('/barang/edit/{id_barang}', [BarangController::class, 'edit'])->name('barang.edit');
-Route::post('/barang/update/{id_barang}', [BarangController::class, 'update'])->name('barang.update');
-Route::delete('/barang/delete/{id_barang}', [BarangController::class, 'delete'])->name('barang.delete');
-Route::get('/kategori', [BarangController::class, 'daftarKategori'])->name('barang.kategori');
-Route::get('/barang', [BarangController::class, 'daftarKategori'])->name('barang.kategori');
-Route::get('/barang', [BarangController::class, 'cari'])->name('barang.cari');
+
+// Rute untuk manajemen barang
+Route::get('/manajemen', [BarangController::class, 'manajamen'])->name('barang.tampil');
+// Rute lainnya
+Route::post('/barang', [BarangController::class, 'store'])->name('barang.store');
+Route::put('/barang/{id_barang}', [BarangController::class, 'update'])->name('barang.update');
+Route::delete('/barang/{id_barang}', [BarangController::class, 'destroy'])->name('barang.destroy');
+
+
+//Route untuk menampilkan pemasok
+Route::get('/pemasok', [PemasokController::class, 'daftarPemasok'])->name('barang.pemasok');
+
+Route::post('/pemasok', [PemasokController::class, 'store'])->name('pemasok.store'); // Rute untuk menyimpan pemasok baru
+Route::put('/pemasok/{id}', [PemasokController::class, 'update'])->name('pemasok.update'); // Rute untuk memperbarui pemasok
+Route::delete('/pemasok/{id}', [PemasokController::class, 'destroy'])->name('pemasok.destroy'); // Rute untuk menghapus pemasok
+
+//Untuk Kategori
+Route::get('/kategori', [KategoriController::class, 'daftarKategori'])->name('barang.kategori');
+Route::get('/barang', [KategoriController::class, 'daftarKategori'])->name('barang.kategori');
+Route::get('/barang', [KategoriController::class, 'cari'])->name('barang.cari');

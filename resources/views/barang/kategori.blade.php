@@ -15,8 +15,8 @@
             background-position: center; /* Memposisikan gambar di tengah */
         }
 
-        /* Style sidebar */
-        .sidebar {
+       /* Style sidebar */
+       .sidebar {
             height: 100%;
             width: 250px;
             position: fixed;
@@ -85,11 +85,12 @@
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
-          Navigasi
+            Navigasi
         </div>
         <a href="{{ route('barang.tampil') }}">Inventaris Barang</a>
-        <a href="{{ route('barang.kategori') }}">Lihat Kategori</a>
-    </div>
+        <a href="{{ route('barang.pemasok') }}">Daftar Pemasok</a>
+        <a href="{{ route('barang.kategori') }}">Daftar Kategori</a>
+    </div>    
     <div class="content">
         <div class="table-container">
             <h4>DAFTAR ID KATEGORI</h4>
