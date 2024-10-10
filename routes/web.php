@@ -18,7 +18,6 @@ Route::delete('/barang/{id_barang}', [BarangController::class, 'destroy'])->name
 Route::get('/barang/search', [BarangController::class, 'search'])->name('barang.search');
 
 
-
 //Route untuk menampilkan pemasok
 Route::get('/pemasok', [PemasokController::class, 'daftarPemasok'])->name('barang.pemasok');
 Route::post('/pemasok', [PemasokController::class, 'store'])->name('pemasok.store'); // Rute untuk menyimpan pemasok baru
