@@ -4,12 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BuatTabelPemasok extends Migration
+return new class extends Migration
 {
     /**
      * Jalankan migrasi.
      *
-     * @return void
      */
     public function up()
     {
@@ -26,10 +25,9 @@ class BuatTabelPemasok extends Migration
     /**
      * Kembalikan migrasi.
      *
-     * @return void
      */
     public function down()
     {
         Schema::dropIfExists('pemasok');
     }
-}
+};
