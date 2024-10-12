@@ -9,7 +9,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
 </head>
 
 <body>
@@ -48,11 +47,11 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addBarangModal">Tambah Barang</button>
                     <form action="{{ route('barang.search') }}" method="GET" class="input-group ml-3" style="width: 250px;">
-                        <input type="text" class="form-control" name="query" placeholder="Cari ID" required>
+                        <input type="text" class="form-control" name="query" placeholder="Cari Nama Barang" required>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="submit">Cari</button>
                         </div>
-                    </form>
+                    </form>                    
                 </div>
 
                 <!-- Tabel Daftar Barang -->
@@ -63,30 +62,33 @@
                             <th>Nama Barang</th>
                             <th>Harga</th>
                             <th>Stok</th>
-                            <th>ID Kategori</th>
+                            <th>Kategori</th>
+                            <th>Pemasok</th> <!-- Kolom ID Pemasok -->
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if($barang->isEmpty())
                             <tr>
-                                <td colspan="6">Tidak ada barang ditemukan dengan ID tersebut.</td>
+                                <td colspan="7">Barang dengan nama "{{ request()->query('query') }}" tidak ditemukan.</td>
                             </tr>
                         @else
                             @foreach($barang as $index => $item)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $item->nama_barang }}</td>
-                                    <td>{{ $item->harga }}</td>
+                                    <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                     <td>{{ $item->stok }}</td>
-                                    <td>{{ $item->kategori_id }}</td>
+                                    <td>{{ $item->kategori->nama_kategori ?? 'Kategori Tidak Ada' }}</td> <!-- Menampilkan nama kategori -->
+                                    <td>{{ $item->pemasok->nama ?? 'Pemasok Tidak Ada' }}</td> <!-- Menampilkan nama pemasok -->
                                     <td>
                                         <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editBarangModal"
                                                 data-id="{{ $item->id_barang }}"
                                                 data-nama_barang="{{ $item->nama_barang }}"
                                                 data-harga="{{ $item->harga }}"
                                                 data-stok="{{ $item->stok }}"
-                                                data-kategori_id="{{ $item->kategori_id }}">
+                                                data-kategori_id="{{ $item->kategori_id }}"
+                                                data-pemasok_id="{{ $item->pemasok_id }}">
                                             Edit
                                         </button>
                                         <form action="{{ route('barang.destroy', $item->id_barang) }}" method="POST" style="display:inline;">
@@ -98,7 +100,7 @@
                                 </tr>
                             @endforeach
                         @endif
-                    </tbody>                    
+                    </tbody>                                      
                 </table>  
             </div> 
         </div>
@@ -134,6 +136,15 @@
                                     <option value="" disabled selected>Pilih Kategori</option>
                                     @foreach ($kategori as $kat) <!-- Mengambil data kategori -->
                                         <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option> <!-- Menampilkan nama kategori -->
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pemasok_id">Pemasok:</label>
+                                <select name="pemasok_id" required>
+                                    <option value="" disabled selected>Pilih Pemasok</option>
+                                    @foreach ($pemasok as $pem) <!-- Mengambil data pemasok -->
+                                        <option value="{{ $pem->id }}">{{ $pem->nama }}</option> <!-- Menampilkan nama pemasok -->
                                     @endforeach
                                 </select>
                             </div>
@@ -176,42 +187,54 @@
                                 <input type="number" class="form-control" id="editStok" name="stok" required>
                             </div>
                             <div class="form-group">
-                                <label for="kategori_id">Kategori:</label>
-                                <select name="kategori_id" required>
+                                <label for="editKategoriId">Kategori:</label>
+                                <select id="editKategoriId" name="kategori_id" required>
                                     <option value="" disabled selected>Pilih Kategori</option>
-                                    @foreach ($kategori as $kat) <!-- Mengambil data kategori -->
-                                        <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option> <!-- Menampilkan nama kategori -->
+                                    @foreach ($kategori as $kat)
+                                        <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPemasokId">Pemasok:</label>
+                                <select id="editPemasokId" name="pemasok_id" required>
+                                    <option value="" disabled selected>Pilih Pemasok</option>
+                                    @foreach ($pemasok as $pem)
+                                        <option value="{{ $pem->id }}">{{ $pem->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Perbarui</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-        <script>
-            $('#editBarangModal').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget);
-                var id = button.data('id');
-                var nama_barang = button.data('nama_barang');
-                var harga = button.data('harga');
-                var stok = button.data('stok');
-
-                var modal = $(this);
-                modal.find('#editBarangId').val(id);
-                modal.find('#editNamaBarang').val(nama_barang);
-                modal.find('#editHarga').val(harga);
-                modal.find('#editStok').val(stok);
-
-                $('#editBarangForm').attr('action', '/barang/' + id);
-            });
-        </script>
-        </div>
     </div>
+
+    <script>
+        // Mengisi form edit dengan data yang dipilih
+        $('#editBarangModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var id = button.data('id');
+            var nama_barang = button.data('nama_barang');
+            var harga = button.data('harga');
+            var stok = button.data('stok');
+            var kategori_id = button.data('kategori_id');
+            var pemasok_id = button.data('pemasok_id');
+
+            var modal = $(this);
+            modal.find('#editBarangId').val(id);
+            modal.find('#editNamaBarang').val(nama_barang);
+            modal.find('#editHarga').val(harga);
+            modal.find('#editStok').val(stok);
+            modal.find('#editKategoriId').val(kategori_id);
+            modal.find('#editPemasokId').val(pemasok_id);
+            modal.find('form').attr('action', '/barang/' + id); // Ubah URL action untuk form edit
+        });
+    </script>
 </body>
 </html>

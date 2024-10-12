@@ -43,48 +43,36 @@
             @endif
             <div class="title-container">
                 <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addSupplierModal">Tambah Pemasok</button>
-
-                <table class="table table-bordered mt-3">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nama Pemasok</th>
-                            <th>Alamat</th>
-                            <th>Telepon</th>
-                            <th>Email</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($pemasok as $index => $item)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nama }}</td>
-                                <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->telepon }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editSupplierModal"
-                                            data-id="{{ $item->id }}"
-                                            data-nama="{{ $item->nama }}"
-                                            data-alamat="{{ $item->alamat }}"
-                                            data-telepon="{{ $item->telepon }}"
-                                            data-email="{{ $item->email }}">
-                                        Edit
-                                    </button>
-                                    <form action="{{ route('pemasok.destroy', $item->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
+                <!-- List Group View -->
+                <div class="list-group">
+                    @foreach($pemasok as $item)
+                        <div class="list-group-item list-group-item-action">
+                            <h5>{{ $item->nama }}</h5>
+                            <p><strong>Alamat:</strong> {{ $item->alamat }}</p>
+                            <p><strong>Telepon:</strong> {{ $item->telepon }}</p>
+                            <p><strong>Email:</strong> {{ $item->email }}</p>
+            
+                            <!-- Tombol Edit dan Hapus lebih rapat -->
+                            <div>
+                                <button class="btn btn-warning btn-sm d-inline-block" data-toggle="modal" data-target="#editSupplierModal"
+                                        data-id="{{ $item->id }}"
+                                        data-nama="{{ $item->nama }}"
+                                        data-alamat="{{ $item->alamat }}"
+                                        data-telepon="{{ $item->telepon }}"
+                                        data-email="{{ $item->email }}">
+                                    Edit
+                                </button>
+                                <form action="{{ route('pemasok.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm d-inline-block">Hapus</button>
+                                </form>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>            
+            
         <!-- Modal Tambah Pemasok -->
         <div class="modal fade" id="addSupplierModal" tabindex="-1" role="dialog" aria-labelledby="addSupplierModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
