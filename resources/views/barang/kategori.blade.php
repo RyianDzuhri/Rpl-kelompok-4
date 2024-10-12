@@ -13,6 +13,9 @@
         <div class="sidebar-header">
             Navigasi
         </div>
+        <a href="{{ route('barang.dashboard') }}">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
         <a href="{{ route('barang.tampil') }}" class="{{ request()->routeIs('barang.tampil') ? 'active' : '' }}">
             <i class="fas fa-box"></i> Data Barang
         </a>
@@ -22,7 +25,7 @@
         <a href="{{ route('barang.kategori') }}" class="{{ request()->routeIs('barang.kategori') ? 'active' : '' }}">
             <i class="fas fa-tags"></i> Kategori
         </a>
-    </div>   
+    </div> 
     <div class="content">
         <div class="title-container">
             <h4 class="title">DAFTAR KATEGORI</h4>
