@@ -26,8 +26,7 @@ Route::delete('/pemasok/{id}', [PemasokController::class, 'destroy'])->name('pem
 
 //Route untuk Kategori
 Route::get('/kategori', [KategoriController::class, 'daftarKategori'])->name('barang.kategori');
-Route::get('/barang', [KategoriController::class, 'daftarKategori'])->name('barang.kategori');
-Route::get('/barang', [KategoriController::class, 'cari'])->name('barang.cari');
+Route::get('/kategori/{id}/barang', [KategoriController::class, 'showBarang'])->name('barang.kategori.barang');
 
 //Route untuk Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('barang.dashboard');
