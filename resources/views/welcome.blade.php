@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikasi Manajemen Barang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+20&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('{{ asset('images/bgkat2.jpg') }}');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        font-family: "Jersey 20", sans-serif; /* Font yang digunakan */
+        margin: 0;
+        padding: 0;
+        background-image: url('{{ asset('images/bgchar.webp') }}'); /* Gambar latar belakang */
+        background-size: cover; /* Memastikan gambar menutupi seluruh area */
+        background-position: center; /* Memposisikan gambar di tengah */
+        background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+        background-attachment: fixed; /* Mengunci gambar saat menggulir */
+        height: 100vh; /* Mengisi seluruh tinggi layar */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         }
+
         .header-container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
