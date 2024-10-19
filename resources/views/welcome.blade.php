@@ -14,7 +14,7 @@
         font-family: "Jersey 20", sans-serif; /* Font yang digunakan */
         margin: 0;
         padding: 0;
-        background-image: url('{{ asset('images/bgchar.webp') }}'); /* Gambar latar belakang */
+        background-image: url('{{ asset('images/bgwag.jpg') }}'); /* Gambar latar belakang */
         background-size: cover; /* Memastikan gambar menutupi seluruh area */
         background-position: center; /* Memposisikan gambar di tengah */
         background-repeat: no-repeat; /* Menghindari pengulangan gambar */
@@ -27,7 +27,7 @@
         }
 
         .header-container {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(255, 255, 255, 0.7);
             padding: 30px;
             border-radius: 8px;
             text-align: center;
@@ -35,15 +35,15 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         h1 {
-            color: white;
+            color: rgb(7, 16, 44);
             margin: 0;
             font-size: 2.5rem;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
         }
         .btn-yellow {
             background: linear-gradient(90deg, #ffcc00, #ffd700);
             color: black;
-            padding: 15px 30px;
+            padding: 15px 40px;
             font-size: 20px;
             border: none;
             border-radius: 5px;
@@ -53,7 +53,7 @@
             align-items: center;
         }
         .btn-yellow:hover {
-            background: linear-gradient(90deg, #ffd700, #ffcc00);
+            background: linear-gradient(90deg, #e3a92c, #ffcc00);
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
