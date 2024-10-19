@@ -12,7 +12,7 @@ class BarangController extends Controller
     // Menampilkan halaman dengan daftar barang
     public function tampil()
     {
-        $barang = Barang::all(); // Mengambil semua data barang
+        $barang = Barang::paginate(5); // Mengambil semua data barangu
         $kategori = Kategori::all(); // Mengambil semua data kategori
         $pemasok = Pemasok::all(); // Mengambil semua data pemasok
 
