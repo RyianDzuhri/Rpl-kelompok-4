@@ -22,30 +22,36 @@ Proyek ini adalah aplikasi manajemen inventaris sederhana yang memungkinkan peng
 1. Clone repositori ini
 ```bash
 git clone <URL_REPOSITORI>
+```
 
 2. Masuk ke direktori proyek:
 ```bash
 cd <NAMA_DIREKTORI>
+```
 
 3. Install dependensi menggunakan Composer
 ```bash
 composer install
+```
 
 4. Buat file .env dari file .env.example
 ```bash
 cp .env.example .env
+```
 
 5. Atur konfigurasi database di file .env
 
 6. Jalankan migrasi untuk menyiapkan database
 ```bash
 php artisan migrate
+```
 
 7. Jalankan Seeder Secara Terpisah
 ```bash
 php artisan db:seed --class=KategoriSeeder
+```
 
 8. Jalankan server di localhost
 ```bash
 php artisan serve
-
+```
