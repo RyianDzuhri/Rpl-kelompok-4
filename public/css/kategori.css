@@ -1,8 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
+/* Gaya Umum */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Gaya Sidebar */
+.sidebar-header {
+    padding: 15px 20px;
+    background-color: rgba(30, 38, 73, 0.9); /* Warna latar belakang lebih gelap dengan transparansi */
+    color: white;
+    text-align: center;
+    font-size: 24px; /* Ukuran font lebih besar */
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff6f00; /* Garis bawah untuk menambah estetika */
+    letter-spacing: 1px; /* Jarak antar huruf untuk tampilan lebih modern */
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, rgba(6, 43, 76, 0.9), rgba(0, 0, 0, 0.6)), url('/images/sbar.jpg'); /* Menambahkan gradien */
+    background-size: cover; /* Mengisi area dengan gambar */
+    background-position: center; /* Pusatkan gambar */
+    padding-top: 20px;
+    padding-bottom: 20px; /* Tambahkan padding bawah untuk ruang */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
+}
+
+.sidebar a {
+    background-color: rgba(16, 11, 89, 0.8); /* Background semi-transparan yang lebih gelap */
+    color: white; /* Warna teks */
+    padding: 15px 20px;
+    display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+    align-items: center; /* Rata tengah secara vertikal */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Tambahkan transisi untuk transform */
+    border-radius: 5px; /* Sudut membulat untuk link */
+    margin-bottom: 10px; /* Jarak antar link */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan halus */
+    outline: none; /* Menghapus garis luar saat fokus */
+}
+
+.sidebar a:hover {
+    background-color: #0054c2; /* Warna latar belakang saat hover */
+    color: #fff; /* Warna teks saat hover */
+    transform: translateY(-2px); /* Efek sedikit mengangkat saat hover */
+}
+
+.sidebar a i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+    color: #1f0d98; /* Warna ikon */
+}
+
+.sidebar a.active {
+    background-color: #ff6f00; /* Warna latar belakang saat aktif */
+    color: black; /* Warna teks saat aktif */
+    font-weight: bold; /* Cetak tebal untuk menonjolkan yang aktif */
+}
+
+/* Gaya Konten */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    background-image: url('/images/bgdash.jpg');
+    background-size: cover; /* Mengisi area */
+    background-position: center; /* Pusatkan gambar */
+    background-repeat: no-repeat; /* Tidak mengulangi gambar */
+    height: 100vh; /* Mengisi tinggi layar */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.title-container {
+    background-color: rgba(255, 255, 255, 0.208); /* Warna latar belakang putih dengan transparansi */
+    padding: 10px;
+    border-radius: 5px; /* Sudut membulat untuk judul */
+    margin-bottom: 20px;
+}
+.title {
+    font-size: 2em;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.modal-body {
+    max-height: 400px; /* Atur tinggi maksimum sesuai kebutuhan */
+    overflow-y: auto; /* Menambahkan scroll jika isi modal melebihi tinggi maksimum */
+}
 .card {
     border-radius: 15px;
     transition: transform 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.612); /* Warna latar belakang kartu dengan transparansi */
 }
 
 .card:hover {
@@ -16,94 +111,15 @@
 
 .card-text {
     font-size: 14px;
-    color: #6c757d;
+    color: #27333e;
 }
 
-.modal-body {
-    max-height: 400px; /* Atur tinggi maksimum sesuai kebutuhan */
-    overflow-y: auto; /* Menambahkan scroll jika isi modal melebihi tinggi maksimum */
-}
-
-
-
-/* Gaya Sidebar */
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #0c0a33;
-    padding-top: 20px;
-}
-.sidebar-header {
-    padding: 15px 20px;
-    background-color: #1e2649;
-    color: white;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-.sidebar a {
-    padding: 15px 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: block;
-    transition: background-color 0.3s, color 0.3s;
-}
-.sidebar a:hover {
-    background-color: #dadadf;
-    color: black;
-}
-.sidebar a.active {
-    background-color: #0054c2; /* Warna latar belakang saat aktif */
-    color: black; /* Warna teks saat aktif */
-}
-
-/* Gaya Umum */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1E3A5F; /* Warna fallback atau untuk area transparan */
-}
-.content {
-    margin-left: 250px;
-    padding: 20px;
-}
-.title-container {
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-.title {
-    font-size: 2em;
-    color: #000000;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-}
-
+/* Gaya untuk wrapper konten */
 .content-wrapper {
-    background-color: white; /* Warna latar belakang putih */
+    background-color: rgba(255, 255, 255, 0); /* Mengatur warna latar belakang konten wrapper menjadi transparan */
     padding: 20px; /* Tambahkan padding untuk ruang di dalam */
     margin: 20px 0; /* Tambahkan margin untuk jarak vertikal */
     border-radius: 5px; /* Untuk sudut yang lebih halus */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
 }
 
-/* Gaya untuk card dashboard */
-.dashboard-cards {
-    display: flex; /* Untuk menampilkan card secara horizontal */
-    justify-content: space-around; /* Untuk memberikan jarak antar card */
-    margin-top: 30px; /* Margin atas untuk pemisahan */
-}

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/barang.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -32,29 +32,26 @@
 
     <div class="content">
         <div class="title-container">
-            <h4 class="title">DAFTAR BARANG</h4>            
+            <h4 class="title">DAFTAR BARANG</h4>
         </div>
         
         <div class="header">
-            <!-- Notifikasi untuk aksi yang berhasil -->
             @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
                 </div>
             @endif
             
-            <div class="title-container">
+            <div>
                 <div class="d-flex justify-content-between align-items-center">
                     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addBarangModal">Tambah Barang</button>
                     <form action="{{ route('barang.search') }}" method="GET" class="input-group ml-3" style="width: 250px;">
-                        <input type="text" class="form-control" name="query" placeholder="Cari Nama Barang" required>
+                        <input type="text" class="form-control custom-input" name="query" placeholder="Cari Nama Barang" required>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="submit">Cari</button>
                         </div>
-                    </form>                    
+                    </form>                                                          
                 </div>
-
-                <!-- Tabel Daftar Barang -->
                 <table class="table table-bordered mt-3">
                     <thead>
                         <tr>
@@ -63,24 +60,24 @@
                             <th>Harga</th>
                             <th>Stok</th>
                             <th>Kategori</th>
-                            <th>Pemasok</th> <!-- Kolom ID Pemasok -->
+                            <th>Pemasok</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if($barang->isEmpty())
                             <tr>
-                                <td colspan="7">Barang dengan nama "{{ request()->query('query') }}" tidak ditemukan.</td>
+                                <td colspan="7" class="text-center">Barang dengan nama "{{ request()->query('query') }}" tidak ditemukan.</td>
                             </tr>
                         @else
                             @foreach($barang as $index => $item)
                                 <tr>
-                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $index + 1 + ($barang->currentPage() - 1) * $barang->perPage() }}</td>
                                     <td>{{ $item->nama_barang }}</td>
                                     <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                                     <td>{{ $item->stok }}</td>
-                                    <td>{{ $item->kategori->nama_kategori ?? 'Kategori Tidak Ada' }}</td> <!-- Menampilkan nama kategori -->
-                                    <td>{{ $item->pemasok->nama ?? 'Pemasok Tidak Ada' }}</td> <!-- Menampilkan nama pemasok -->
+                                    <td>{{ $item->kategori->nama_kategori ?? 'Kategori Tidak Ada' }}</td>
+                                    <td>{{ $item->pemasok->nama ?? 'Pemasok Tidak Ada' }}</td>
                                     <td>
                                         <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editBarangModal"
                                                 data-id="{{ $item->id_barang }}"
@@ -94,14 +91,41 @@
                                         <form action="{{ route('barang.destroy', $item->id_barang) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus barang ini?')">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
                         @endif
-                    </tbody>                                      
-                </table>  
+                    </tbody>
+                </table>
+                <!-- Menampilkan link pagination -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center mt-3">
+                        {{-- Tombol Previous --}}
+                        <li class="page-item {{ $barang->onFirstPage() ? 'disabled' : '' }}">
+                            <a class="page-link" href="{{ $barang->previousPageUrl() }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+
+                        {{-- Menampilkan nomor halaman --}}
+                        @foreach ($barang->getUrlRange(1, $barang->lastPage()) as $page => $url)
+                            <li class="page-item {{ $page == $barang->currentPage() ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                            </li>
+                        @endforeach
+
+                        {{-- Tombol Next --}}
+                        <li class="page-item {{ $barang->hasMorePages() ? '' : 'disabled' }}">
+                            <a class="page-link" href="{{ $barang->nextPageUrl() }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>           
             </div> 
         </div>
         
@@ -132,19 +156,19 @@
                             </div>
                             <div class="form-group">
                                 <label for="kategori_id">Kategori:</label>
-                                <select name="kategori_id" required>
+                                <select name="kategori_id" class="form-control" required>
                                     <option value="" disabled selected>Pilih Kategori</option>
-                                    @foreach ($kategori as $kat) <!-- Mengambil data kategori -->
-                                        <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option> <!-- Menampilkan nama kategori -->
+                                    @foreach ($kategori as $kat)
+                                        <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="pemasok_id">Pemasok:</label>
-                                <select name="pemasok_id" required>
+                                <select name="pemasok_id" class="form-control" required>
                                     <option value="" disabled selected>Pilih Pemasok</option>
-                                    @foreach ($pemasok as $pem) <!-- Mengambil data pemasok -->
-                                        <option value="{{ $pem->id }}">{{ $pem->nama }}</option> <!-- Menampilkan nama pemasok -->
+                                    @foreach ($pemasok as $pem)
+                                        <option value="{{ $pem->id }}">{{ $pem->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -157,7 +181,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Modal Edit Barang -->
         <div class="modal fade" id="editBarangModal" tabindex="-1" role="dialog" aria-labelledby="editBarangModalLabel" aria-hidden="true">
@@ -188,7 +211,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="editKategoriId">Kategori:</label>
-                                <select id="editKategoriId" name="kategori_id" required>
+                                <select id="editKategoriId" name="kategori_id" class="form-control" required>
                                     <option value="" disabled selected>Pilih Kategori</option>
                                     @foreach ($kategori as $kat)
                                         <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
@@ -197,7 +220,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="editPemasokId">Pemasok:</label>
-                                <select id="editPemasokId" name="pemasok_id" required>
+                                <select id="editPemasokId" name="pemasok_id" class="form-control" required>
                                     <option value="" disabled selected>Pilih Pemasok</option>
                                     @foreach ($pemasok as $pem)
                                         <option value="{{ $pem->id }}">{{ $pem->nama }}</option>
