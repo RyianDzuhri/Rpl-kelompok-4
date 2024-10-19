@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/pemasok.css') }}" rel="stylesheet">
 
 </head>
 
@@ -41,18 +41,17 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <div class="title-container">
+            <div>
                 <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addSupplierModal">Tambah Pemasok</button>
                 <!-- List Group View -->
                 <div class="list-group">
                     @foreach($pemasok as $item)
-                        <div class="list-group-item list-group-item-action">
+                        <div class="supplier-card">
                             <h5>{{ $item->nama }}</h5>
                             <p><strong>Alamat:</strong> {{ $item->alamat }}</p>
                             <p><strong>Telepon:</strong> {{ $item->telepon }}</p>
                             <p><strong>Email:</strong> {{ $item->email }}</p>
-            
-                            <!-- Tombol Edit dan Hapus lebih rapat -->
+                
                             <div>
                                 <button class="btn btn-warning btn-sm d-inline-block" data-toggle="modal" data-target="#editSupplierModal"
                                         data-id="{{ $item->id }}"
@@ -70,7 +69,7 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
+                </div>                
             </div>            
             
         

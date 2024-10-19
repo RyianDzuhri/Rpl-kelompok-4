@@ -1,0 +1,148 @@
+/* Mengimpor font Montserrat dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Gaya Umum */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Warna latar belakang umum */
+}
+
+/* Gaya Sidebar */
+.sidebar-header {
+    padding: 15px 20px;
+    background-color: rgba(30, 38, 73, 0.9); /* Warna latar belakang lebih gelap dengan transparansi */
+    color: white;
+    text-align: center;
+    font-size: 24px; /* Ukuran font lebih besar */
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff6f00; /* Garis bawah untuk menambah estetika */
+    letter-spacing: 1px; /* Jarak antar huruf untuk tampilan lebih modern */
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, rgba(6, 43, 76, 0.9), rgba(0, 0, 0, 0.6)), url('/images/sbar.jpg'); /* Menambahkan gradien */
+    background-size: cover; /* Mengisi area dengan gambar */
+    background-position: center; /* Pusatkan gambar */
+    padding-top: 20px;
+    padding-bottom: 20px; /* Tambahkan padding bawah untuk ruang */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
+}
+
+.sidebar a {
+    background-color: rgba(16, 11, 89, 0.8); /* Background semi-transparan yang lebih gelap */
+    color: white; /* Warna teks */
+    padding: 15px 20px;
+    display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+    align-items: center; /* Rata tengah secara vertikal */
+    transition: background-color 0.3s, color 0.3s, transform 0.2s; /* Tambahkan transisi untuk transform */
+    border-radius: 5px; /* Sudut membulat untuk link */
+    margin-bottom: 10px; /* Jarak antar link */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan halus */
+    outline: none; /* Menghapus garis luar saat fokus */
+}
+
+.sidebar a:hover {
+    background-color: #0054c2; /* Warna latar belakang saat hover */
+    color: #fff; /* Warna teks saat hover */
+    transform: translateY(-2px); /* Efek sedikit mengangkat saat hover */
+}
+
+.sidebar a i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+    color: #1f0d98; /* Warna ikon */
+}
+
+.sidebar a.active {
+    background-color: #ff6f00; /* Warna latar belakang saat aktif */
+    color: black; /* Warna teks saat aktif */
+    font-weight: bold; /* Cetak tebal untuk menonjolkan yang aktif */
+}
+
+/* Gaya Konten */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    background-image: url('/images/bgdash.jpg');
+    background-size: cover; /* Mengisi area */
+    background-position: center; /* Pusatkan gambar */
+    background-repeat: no-repeat; /* Tidak mengulangi gambar */
+    height: 100vh; /* Mengisi tinggi layar */
+    display: flex;
+    flex-direction: column;
+    overflow: auto; /* Mengizinkan scroll jika konten lebih tinggi dari viewport */
+}
+
+/* Gaya untuk Kotak Pemasok */
+.supplier-card {
+    background-color: rgba(255, 255, 255, 0.409); /* Warna latar belakang kotak dengan transparansi (0.8) */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 5px; /* Sudut membulat */
+    padding: 15px; /* Padding di dalam kotak */
+    margin-bottom: 15px; /* Jarak antar kotak */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk memberikan efek kedalaman */
+    transition: transform 0.3s; /* Transisi untuk efek hover */
+}
+
+
+.supplier-card:hover {
+    transform: translateY(-5px); /* Efek hover untuk mengangkat kotak */
+}
+
+/* Gaya Tabel */
+.table {
+    background-color: #fff; /* Warna latar belakang tabel */
+    border-radius: 5px; /* Sudut membulat untuk tabel */
+    border: 1px solid #000; /* Garis border tabel */
+}
+
+.table th {
+    background-color: #0054c2; /* Warna latar belakang header tabel */
+    color: white; /* Warna teks header tabel */
+}
+
+.table td {
+    color: #333; /* Warna teks tabel */
+}
+
+/* Gaya Modal */
+.modal-content {
+    border-radius: 5px; /* Sudut membulat untuk modal */
+}
+
+.modal-header {
+    background-color: #ff6f00; /* Warna latar belakang header modal */
+    color: white; /* Warna teks header modal */
+}
+
+/* Gaya Tombol */
+.btn-primary {
+    background-color: #ff6f00; /* Warna latar belakang tombol primary */
+    border: none; /* Menghilangkan border */
+}
+
+.btn-primary:hover {
+    background-color: #e65c00; /* Warna latar belakang saat hover */
+}
+
+.btn-secondary {
+    background-color: #062b4c; /* Warna latar belakang tombol secondary */
+    border: none; /* Menghilangkan border */
+}
+
+.btn-secondary:hover {
+    background-color: #0054c2; /* Warna latar belakang saat hover */
+}
+.title-container {
+    background-color: rgba(255, 255, 255, 0.208); /* Warna latar belakang putih dengan transparansi */
+    padding: 10px;
+    border-radius: 5px; /* Sudut membulat untuk judul */
+    margin-bottom: 20px;
+}
