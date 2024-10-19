@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 <body>
@@ -27,14 +27,13 @@
         </a>
     </div>
     
-    <div class="content">
+    <main class="content">
         <!-- Hero Text -->
         <div class="hero-text">
             <h1>Kelola Inventaris dengan Mudah dan Cepat</h1>
             <p>Menyederhanakan manajemen produk Anda dengan sistem yang efisien dan cepat.</p>
         </div>
         <div class="container">
-
             <div class="content-wrapper">
                 <h1>Dashboard</h1>
                 <div class="dashboard-cards">
@@ -53,6 +52,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
