@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-        font-family: "Jersey 20", sans-serif; /* Font yang digunakan */
+        font-family: "Jersey 25", sans-serif; /* Font yang digunakan */
         margin: 0;
         padding: 0;
         background-image: url('{{ asset('images/bgwag.jpg') }}'); /* Gambar latar belakang */
