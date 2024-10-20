@@ -71,19 +71,17 @@ class BarangController extends Controller
         return redirect()->route('barang.tampil')->with('success', 'Barang berhasil dihapus!');
     }
 
-    // Mencari barang berdasarkan ID
+    // Mencari barang berdasarkan Nama
     public function search(Request $request)
     {
         $query = $request->input('query'); // Ambil input dari form pencarian
-
-        // Cari barang berdasarkan nama_barang (mengabaikan huruf besar/kecil)
-        $barang = Barang::where('nama_barang', 'LIKE', "%{$query}%")->get();
-
+        // Cari barang berdasarkan nama_barang (mengabaikan huruf besar/kecil) dengan pagination
+        $barang = Barang::where('nama_barang', 'LIKE', "%{$query}%")->paginate(5); // 10 item per halaman
         // Ambil kategori dan pemasok untuk ditampilkan di tampilan
         $kategori = Kategori::all();
         $pemasok = Pemasok::all();
-
+    
         // Kembali ke view dengan hasil pencarian
         return view('barang.tampil', compact('barang', 'kategori', 'pemasok'));
-    }
+    }    
 }
