@@ -87,8 +87,9 @@ body {
     border-radius: 5px; /* Sudut membulat */
     padding: 15px; /* Padding di dalam kotak */
     margin-bottom: 15px; /* Jarak antar kotak */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk memberikan efek kedalaman */
+    box-shadow: 0 2px 5px rgba(255, 254, 254, 0.781); /* Bayangan untuk memberikan efek kedalaman */
     transition: transform 0.3s; /* Transisi untuk efek hover */
+    color: #000000; /* Ganti ini dengan warna font yang Anda inginkan */
 }
 
 
