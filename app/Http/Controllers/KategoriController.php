@@ -12,9 +12,9 @@ class KategoriController extends Controller
         $kategori = Kategori::all();
         return view ('barang.kategori', compact('kategori'));
     }
-    public function showBarang($id)
-    {
-        $kategori = Kategori::with('barangs')->findOrFail($id); // Ambil kategori berdasarkan ID
-        return view('kategori.show', compact('kategori')); // Anda bisa menampilkan barang di halaman terpisah
-    }
+    // public function showBarang($id)
+    // {
+    //     $kategori = Kategori::with('barangs')->findOrFail($id); // Ambil kategori berdasarkan ID
+    //     return view('kategori.show', compact('kategori')); // Anda bisa menampilkan barang di halaman terpisah
+    // }
 }
