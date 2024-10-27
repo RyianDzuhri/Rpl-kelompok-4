@@ -78,18 +78,13 @@ body {
     position: relative;
 }
 .title-container {
+    color: #ffffff; /* Ganti warna dengan kode warna yang Anda inginkan */
     background-color: rgba(255, 255, 255, 0.208); /* Warna latar belakang putih dengan transparansi */
     padding: 10px;
     border-radius: 5px; /* Sudut membulat untuk judul */
     margin-bottom: 20px;
 }
-.title {
-    font-size: 2em;
-    color: #000000;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-    font-weight: bold;
-}
+
 .modal-body {
     max-height: 400px; /* Atur tinggi maksimum sesuai kebutuhan */
     overflow-y: auto; /* Menambahkan scroll jika isi modal melebihi tinggi maksimum */

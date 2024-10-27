@@ -142,8 +142,10 @@ body {
     background-color: #0054c2; /* Warna latar belakang saat hover */
 }
 .title-container {
+    color: #ffffff; /* Gantidengan kode warna yang Anda inginkan */
     background-color: rgba(255, 255, 255, 0.208); /* Warna latar belakang putih dengan transparansi */
     padding: 10px;
     border-radius: 5px; /* Sudut membulat untuk judul */
     margin-bottom: 20px;
 }
+
