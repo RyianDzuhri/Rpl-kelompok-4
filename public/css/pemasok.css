@@ -97,22 +97,6 @@ body {
     transform: translateY(-5px); /* Efek hover untuk mengangkat kotak */
 }
 
-/* Gaya Tabel */
-.table {
-    background-color: #fff; /* Warna latar belakang tabel */
-    border-radius: 5px; /* Sudut membulat untuk tabel */
-    border: 1px solid #000; /* Garis border tabel */
-}
-
-.table th {
-    background-color: #0054c2; /* Warna latar belakang header tabel */
-    color: white; /* Warna teks header tabel */
-}
-
-.table td {
-    color: #333; /* Warna teks tabel */
-}
-
 /* Gaya Modal */
 .modal-content {
     border-radius: 5px; /* Sudut membulat untuk modal */
