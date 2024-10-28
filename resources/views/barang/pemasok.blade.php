@@ -44,14 +44,13 @@
             <div>
                 <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addSupplierModal">Tambah Pemasok</button>
                 <!-- List Group View -->
-                <div class="list-group">
+                <div class="card">
                     @foreach($pemasok as $item)
                         <div class="supplier-card">
                             <h5>{{ $item->nama }}</h5>
                             <p><strong>Alamat:</strong> {{ $item->alamat }}</p>
                             <p><strong>Telepon:</strong> {{ $item->telepon }}</p>
                             <p><strong>Email:</strong> {{ $item->email }}</p>
-                
                             <div>
                                 <button class="btn btn-warning btn-sm d-inline-block" data-toggle="modal" data-target="#editSupplierModal"
                                         data-id="{{ $item->id }}"
