@@ -133,34 +133,3 @@ body {
     margin-bottom: 20px;
 }
 
-/* Gaya untuk kartu dashboard */
-.dashboard-cards {
-    display: flex; /* Untuk menampilkan card secara horizontal */
-    justify-content: space-around; /* Untuk memberikan jarak antar card */
-    margin-top: 30px; /* Margin atas untuk pemisahan */
-}
-
-.card {
-    width: 30%; /* Lebar card */
-    padding: 20px; /* Padding di dalam card */
-    border-radius: 10px; /* Sudut yang halus */
-    color: white; /* Warna teks di dalam card */
-    transition: transform 0.3s; /* Transisi untuk efek hover */
-}
-
-.card:hover {
-    transform: translateY(-5px); /* Efek mengangkat saat hover */
-}
-
-.card.purple {
-    background-color: #5900ff; /* Warna ungu */
-}
-
-.card.green {
-    background-color: #28a745; /* Warna hijau */
-}
-
-.card.teal {
-    background-color: #20c997; /* Warna teal */
-}
-

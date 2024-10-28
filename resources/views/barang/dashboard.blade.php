@@ -49,8 +49,44 @@
                         <h2>{{ $jumlah_kategori }}</h2>
                         <p>Jumlah Kategori</p>
                     </div>
+                    <div class="card j">
+                        <h2>{{ $jumlah_kategori }}</h2>
+                        <p>Jumlah Kategori</p>
+                    </div>
                 </div>
+                <div class="dashboard-cards">
+                    <div class="card blue">
+                        <h2>cek</h2>
+                        <p>Jumlah Barang</p>
+                    </div>
+                    <div class="card lol">
+                        <h2>cek</h2>
+                        <p>Jumlah Barang</p>
+                </div>
+                </div>
+                <div class="dashboard-cards">
+                    <div class="card p">
+                        <h2>cek</h2>
+                        <p>Jumlah Barang</p>
+                    </div>
+                    <div class="card lo">
+                        <h2>cek</h2>
+                        <p>Jumlah Barang</p>
+                    </div>
+                        <div class="card s">
+                            <h2>cek</h2>
+                            <p>Jumlah Barang</p>
+                        </div>
+                        <div class="card l">
+                            <h2>cek</h2>
+                            <p>Jumlah Barang</p>
+                        </div>
             </div>
+            <div class="dashboard-cards">
+                <div class="card b">
+                    <h2>cek</h2>
+                    <p>Jumlah Barang</p>
+                </div>
         </div>
     </main>
 </body>
