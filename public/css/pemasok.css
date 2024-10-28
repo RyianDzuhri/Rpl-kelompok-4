@@ -87,29 +87,14 @@ body {
     border-radius: 5px; /* Sudut membulat */
     padding: 15px; /* Padding di dalam kotak */
     margin-bottom: 15px; /* Jarak antar kotak */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk memberikan efek kedalaman */
+    box-shadow: 0 2px 5px rgba(255, 254, 254, 0.781); /* Bayangan untuk memberikan efek kedalaman */
     transition: transform 0.3s; /* Transisi untuk efek hover */
+    color: #000000; /* Ganti ini dengan warna font yang Anda inginkan */
 }
 
 
 .supplier-card:hover {
     transform: translateY(-5px); /* Efek hover untuk mengangkat kotak */
-}
-
-/* Gaya Tabel */
-.table {
-    background-color: #fff; /* Warna latar belakang tabel */
-    border-radius: 5px; /* Sudut membulat untuk tabel */
-    border: 1px solid #000; /* Garis border tabel */
-}
-
-.table th {
-    background-color: #0054c2; /* Warna latar belakang header tabel */
-    color: white; /* Warna teks header tabel */
-}
-
-.table td {
-    color: #333; /* Warna teks tabel */
 }
 
 /* Gaya Modal */
@@ -141,8 +126,41 @@ body {
     background-color: #0054c2; /* Warna latar belakang saat hover */
 }
 .title-container {
+    color: #ffffff; /* Gantidengan kode warna yang Anda inginkan */
     background-color: rgba(255, 255, 255, 0.208); /* Warna latar belakang putih dengan transparansi */
     padding: 10px;
     border-radius: 5px; /* Sudut membulat untuk judul */
     margin-bottom: 20px;
 }
+
+/* Gaya untuk kartu dashboard */
+.dashboard-cards {
+    display: flex; /* Untuk menampilkan card secara horizontal */
+    justify-content: space-around; /* Untuk memberikan jarak antar card */
+    margin-top: 30px; /* Margin atas untuk pemisahan */
+}
+
+.card {
+    width: 30%; /* Lebar card */
+    padding: 20px; /* Padding di dalam card */
+    border-radius: 10px; /* Sudut yang halus */
+    color: white; /* Warna teks di dalam card */
+    transition: transform 0.3s; /* Transisi untuk efek hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efek mengangkat saat hover */
+}
+
+.card.purple {
+    background-color: #5900ff; /* Warna ungu */
+}
+
+.card.green {
+    background-color: #28a745; /* Warna hijau */
+}
+
+.card.teal {
+    background-color: #20c997; /* Warna teal */
+}
+

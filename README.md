@@ -41,17 +41,22 @@ cp .env.example .env
 
 5. Atur konfigurasi database di file .env
 
-6. Jalankan migrasi untuk menyiapkan database
+6. Atur Key dalam file env
+```bash
+php artisan key:generate
+```
+
+7. Jalankan migrasi untuk menyiapkan database
 ```bash
 php artisan migrate
 ```
 
-7. Jalankan Seeder Secara Terpisah
+8. Jalankan Seeder Secara Terpisah
 ```bash
 php artisan db:seed --class=KategoriSeeder
 ```
 
-8. Jalankan server di localhost
+9. Jalankan server di localhost
 ```bash
 php artisan serve
 ```

@@ -76,7 +76,7 @@ class BarangController extends Controller
     {
         $query = $request->input('query'); // Ambil input dari form pencarian
         // Cari barang berdasarkan nama_barang (mengabaikan huruf besar/kecil) dengan pagination
-        $barang = Barang::where('nama_barang', 'LIKE', "%{$query}%")->paginate(5); // 10 item per halaman
+        $barang = Barang::where('nama_barang', 'LIKE', "%{$query}%")->paginate(5); // 5 item per halaman
         // Ambil kategori dan pemasok untuk ditampilkan di tampilan
         $kategori = Kategori::all();
         $pemasok = Pemasok::all();

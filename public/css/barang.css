@@ -82,6 +82,7 @@ body {
 
 /* Gaya Judul */
 .title-container {
+    color: #ffffff; /* Ganti warna dengan kode warna yang Anda inginkan */
     background-color: rgba(255, 255, 255, 0.304); /* Warna latar belakang putih dengan transparansi */
     padding: 10px;
     border-radius: 5px; /* Sudut membulat untuk judul */
