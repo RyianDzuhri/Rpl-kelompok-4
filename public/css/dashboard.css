@@ -111,62 +111,31 @@ body {
 
 /* Gaya untuk kartu dashboard */
 .dashboard-cards {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+    display: flex; /* Untuk menampilkan card secara horizontal */
+    justify-content: space-around; /* Untuk memberikan jarak antar card */
+    margin-top: 30px; /* Margin atas untuk pemisahan */
 }
 
-.dashboard-cards .card {
-    width: 30%;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    transition: transform 0.3s;
+.card {
+    width: 30%; /* Lebar card */
+    padding: 20px; /* Padding di dalam card */
+    border-radius: 10px; /* Sudut yang halus */
+    color: white; /* Warna teks di dalam card */
+    transition: transform 0.3s; /* Transisi untuk efek hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efek mengangkat saat hover */
 }
 
 .card.purple {
-    background-color: #5900ff;
+    background-color: #5900ff; /* Warna ungu */
 }
 
 .card.green {
-    background-color: #28a745;
+    background-color: #28a745; /* Warna hijau */
 }
 
 .card.teal {
-    background-color: #20c997;
+    background-color: #20c997; /* Warna teal */
 }
-
-.card.blue {
-    background-color: #0800ff;
-}
-
-.card.lol {
-    background-color: #0800ff;
-}
-
-.card.p {
-    background-color: #0800ff;
-}
-
-.card.lo {
-    background-color: #0800ff;
-}
-
-.card.s {
-    background-color: #0800ff;
-}
-
-.card.l {
-    background-color: #0800ff;
-}
-
-.card.b {
-    background-color: #0800ff;
-}
-
-.card.j {
-    background-color: #0800ff;
-}
-/* p */
-/*  o */
-/* ii */
