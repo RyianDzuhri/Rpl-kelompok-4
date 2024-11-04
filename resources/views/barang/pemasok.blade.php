@@ -50,8 +50,7 @@
                             <h5>{{ $item->nama }}</h5>
                             <p><strong>Alamat:</strong> {{ $item->alamat }}</p>
                             <p><strong>Telepon:</strong> {{ $item->telepon }}</p>
-                            <p><strong>Email:</strong> {{ $item->email }}</p>
-                
+                            <p><strong>Email:</strong> {{ $item->email }}</p>      
                             <div>
                                 <button class="btn btn-warning btn-sm d-inline-block" data-toggle="modal" data-target="#editSupplierModal"
                                         data-id="{{ $item->id }}"
@@ -69,10 +68,9 @@
                             </div>
                         </div>
                     @endforeach
-                </div>                
+                </div>                                
             </div>            
             
-        
         <!-- Modal Tambah Pemasok -->
         <div class="modal fade" id="addSupplierModal" tabindex="-1" role="dialog" aria-labelledby="addSupplierModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

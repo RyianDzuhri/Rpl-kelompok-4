@@ -70,7 +70,7 @@ body {
 .content {
     margin-left: 250px;
     padding: 20px;
-    background-image: url('/images/bgdash.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/bgdash.jpg'); /* Menambahkan overlay gelap */
     background-size: cover; /* Mengisi area */
     background-position: center; /* Pusatkan gambar */
     background-repeat: no-repeat; /* Tidak mengulangi gambar */
@@ -81,21 +81,34 @@ body {
 }
 
 /* Gaya untuk Kotak Pemasok */
-.supplier-card {
-    background-color: rgba(255, 255, 255, 0.409); /* Warna latar belakang kotak dengan transparansi (0.8) */
-    border: 1px solid #ccc; /* Garis border */
-    border-radius: 5px; /* Sudut membulat */
-    padding: 15px; /* Padding di dalam kotak */
-    margin-bottom: 15px; /* Jarak antar kotak */
-    box-shadow: 0 2px 5px rgba(255, 254, 254, 0.781); /* Bayangan untuk memberikan efek kedalaman */
-    transition: transform 0.3s; /* Transisi untuk efek hover */
-    color: #000000; /* Ganti ini dengan warna font yang Anda inginkan */
+/* Container untuk menampilkan grid card */
+.list-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Membuat 2 kolom */
+    gap: 20px; /* Jarak antar card */
 }
 
+@media (max-width: 768px) {
+    .list-group {
+        grid-template-columns: 1fr; /* Jadi satu kolom pada layar kecil */
+    }
+}
+
+/* Sesuaikan gaya card */
+.supplier-card {
+    background-color: rgba(0, 0, 0, 0.311); /* Warna putih dengan transparansi 80% */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    color: #ffffff;
+}
 
 .supplier-card:hover {
-    transform: translateY(-5px); /* Efek hover untuk mengangkat kotak */
+    transform: translateY(-5px);
 }
+
 
 /* Gaya Modal */
 .modal-content {

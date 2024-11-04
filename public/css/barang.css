@@ -70,14 +70,14 @@ body {
 .content {
     margin-left: 250px;
     padding: 20px;
-    background-image: url('/images/bgdash.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/bgdash.jpg'); /* Menambahkan overlay gelap */
     background-size: cover; /* Mengisi area */
     background-position: center; /* Pusatkan gambar */
     background-repeat: no-repeat; /* Tidak mengulangi gambar */
     height: 100vh; /* Mengisi tinggi layar */
     display: flex;
     flex-direction: column;
-    position: relative;
+    overflow: auto; /* Mengizinkan scroll jika konten lebih tinggi dari viewport */
 }
 
 /* Gaya Judul */
