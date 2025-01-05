@@ -41,6 +41,11 @@
                     {{ session('success') }}
                 </div>
             @endif
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             
             <div>
                 <div class="d-flex justify-content-between align-items-center">
@@ -67,7 +72,7 @@
                     <tbody>
                         @if($barang->isEmpty())
                             <tr>
-                                <td colspan="7" class="text-center">Barang Tidak DItemukan !</td>
+                                <td colspan="7" class="text-center">Empty !</td>
                             </tr>
                         @else
                             @foreach($barang as $index => $item)
