@@ -67,7 +67,7 @@
                     <tbody>
                         @if($barang->isEmpty())
                             <tr>
-                                <td colspan="7" class="text-center">Barang Tidak DItemukan "{{ request()->query('query') }}" tidak ditemukan.</td>
+                                <td colspan="7" class="text-center">Barang Tidak DItemukan !</td>
                             </tr>
                         @else
                             @foreach($barang as $index => $item)
