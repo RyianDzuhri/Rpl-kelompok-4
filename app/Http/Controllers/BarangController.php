@@ -65,10 +65,17 @@ class BarangController extends Controller
     // Menghapus barang
     public function destroy($id_barang)
     {
-        $barang = Barang::findOrFail($id_barang);
-        $barang->delete();
+        // Cari barang berdasarkan ID, jika tidak ada, berikan pesan error
+        $barang = Barang::find($id_barang);
 
-        return redirect()->route('barang.tampil')->with('success', 'Barang berhasil dihapus!');
+        if (!$barang) {
+            // Jika barang tidak ditemukan
+            return redirect()->route('barang.tampil')->with('error', 'Barang tidak ditemukan!');
+        } else {
+            // Jika barang ditemukan, hapus barang tersebut
+            $barang->delete();
+            return redirect()->route('barang.tampil')->with('success', 'Barang berhasil dihapus!');
+        }
     }
 
     // Mencari barang berdasarkan Nama
