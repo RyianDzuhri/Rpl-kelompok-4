@@ -93,5 +93,5 @@ class BarangController extends Controller
     
         // Kembali ke view dengan hasil pencarian
         return view('barang.tampil', compact('barang', 'kategori', 'pemasok'));
-    }    
+    }
 }
