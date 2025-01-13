@@ -47,7 +47,7 @@
                 <div class="row d-flex flex-wrap">
                     @foreach($pemasok as $item)
                         <div class="col-md-4 mb-4">
-                            <div class="supplier-card card h-100"> <!-- Tambahkan h-100 di sini untuk membuat semua card sama tinggi -->
+                            <div class="supplier-card card h-100"> 
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->nama }}</h5>
                                     <p><strong>Alamat:</strong> {{ $item->alamat }}</p>
