@@ -44,31 +44,36 @@
             <div>
                 <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addSupplierModal">Tambah Pemasok</button>
                 <!-- List Group View -->
-                <div class="list-group">
+                <div class="row d-flex flex-wrap">
                     @foreach($pemasok as $item)
-                        <div class="supplier-card">
-                            <h5>{{ $item->nama }}</h5>
-                            <p><strong>Alamat:</strong> {{ $item->alamat }}</p>
-                            <p><strong>Telepon:</strong> {{ $item->telepon }}</p>
-                            <p><strong>Email:</strong> {{ $item->email }}</p>      
-                            <div>
-                                <button class="btn btn-warning btn-sm d-inline-block" data-toggle="modal" data-target="#editSupplierModal"
-                                        data-id="{{ $item->id }}"
-                                        data-nama="{{ $item->nama }}"
-                                        data-alamat="{{ $item->alamat }}"
-                                        data-telepon="{{ $item->telepon }}"
-                                        data-email="{{ $item->email }}">
-                                    Edit
-                                </button>
-                                <form action="{{ route('pemasok.destroy', $item->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm d-inline-block">Hapus</button>
-                                </form>
+                        <div class="col-md-4 mb-4">
+                            <div class="supplier-card card h-100"> <!-- Tambahkan h-100 di sini untuk membuat semua card sama tinggi -->
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $item->nama }}</h5>
+                                    <p><strong>Alamat:</strong> {{ $item->alamat }}</p>
+                                    <p><strong>Telepon:</strong> {{ $item->telepon }}</p>
+                                    <p><strong>Email:</strong> {{ $item->email }}</p>
+                                    <div>
+                                        <button class="btn btn-warning btn-sm d-inline-block" data-toggle="modal" data-target="#editSupplierModal"
+                                                data-id="{{ $item->id }}"
+                                                data-nama="{{ $item->nama }}"
+                                                data-alamat="{{ $item->alamat }}"
+                                                data-telepon="{{ $item->telepon }}"
+                                                data-email="{{ $item->email }}">
+                                            Edit
+                                        </button>
+                                        <form action="{{ route('pemasok.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm d-inline-block">Hapus</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     @endforeach
-                </div>                                
+                </div>
+                                          
             </div>            
             
         <!-- Modal Tambah Pemasok -->
